@@ -1,25 +1,26 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="pt-BR">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Portifólio - Guilherme Augusto</title>
-    <meta name="description" content="Portfólio de Guilherme Augusto, Desenvolvedor Full Stack especializado em Python, HTML, CSS, JavaScript, sistemas ERP e automação com N8N." />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="css/style.css" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Portifólio - Guilherme Augusto</title>
+    <meta name="description"
+      content="Portfólio de Guilherme Augusto, Desenvolvedor Full Stack especializado em Python, HTML, CSS, JavaScript, sistemas ERP e automação com N8N.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css" >
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" >
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin >
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600&display=swap" rel="stylesheet" >
   </head>
+
   <body>
     <header>
       <nav>
-        <img src="./img/marca.svg" alt="Guilherme Augusto Logo" />
+        <img src="./img/marca.svg" alt="Guilherme Augusto Logo" >
         <ul>
           <li><a href="#experiencia">Experiencia</a></li>
           <li><a href="#formacao">Formação</a></li>
@@ -30,7 +31,7 @@
 
     <main>
       <article class="apresentacao">
-        <img src="./img/perfil.jpg" alt="Foto de Guilherme" />
+        <img src="./img/perfil.jpg" alt="Foto de Guilherme" >
         <div>
           <h1>Desenvolvedor FullStack e Amante da Tecnologia</h1>
           <p>Localizado em Pernambuco.</p>
@@ -135,12 +136,12 @@
           <ul class="formacao-adicional">
             <li class="reveal">
               <div class="mais-detalhes-formacao">
-                <img src="./img/cursos.svg" alt="Cursos Intensivos" />
+                <img src="./img/cursos.svg" alt="Cursos Intensivos" >
                 <h4>CURSOS INTENSIVOS</h4>
               </div>
               <ul>
                 <li>
-                  UX Design & UI Design
+                  UX Design &amp; UI Design
                   <p>56H</p>
                 </li>
                 <li>
@@ -151,7 +152,7 @@
             </li>
             <li class="reveal">
               <div class="mais-detalhes-formacao">
-                <img src="./img/idiomas.svg" alt="Idiomas" />
+                <img src="./img/idiomas.svg" alt="Idiomas" >
                 <h4>IDIOMAS</h4>
               </div>
               <ul>
@@ -177,64 +178,20 @@
         </p>
         <ul>
           <li>
-            <h3>lobo@gmail.com</h3>
+            <h3><i class="fa-solid fa-envelope contato-icon"></i>lobo@gmail.com</h3>
           </li>
           <li>
-            <h3>819959892</h3>
+            <h3><i class="fa-solid fa-phone contato-icon"></i>819959892</h3>
           </li>
           <li>
-            <h3>github</h3>
+            <h3><i class="fa-brands fa-github contato-icon"></i>github</h3>
           </li>
         </ul>
       </div>
       <p>Alguns direitos reservados</p>
     </footer>
 
-    <script>
-      // Smooth scroll
-      document.querySelectorAll('nav a[href^="#"]').forEach(link => {
-        link.addEventListener("click", e => {
-          e.preventDefault();
-          const target = document.querySelector(link.getAttribute("href"));
-          if (target) {
-            target.scrollIntoView({ behavior: "smooth" });
-          }
-        });
-      });
-
-      // Scroll reveal
-      const revealElements = document.querySelectorAll(".reveal, .reveal-left");
-      const observer = new IntersectionObserver(
-        entries => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("active");
-            }
-          });
-        },
-        { threshold: 0.15 }
-      );
-      revealElements.forEach(el => observer.observe(el));
-
-      // Nav ativa ao scroll
-      const sections = document.querySelectorAll("section, footer");
-      const navLinks = document.querySelectorAll("nav a");
-
-      window.addEventListener("scroll", () => {
-        let current = "";
-        sections.forEach(section => {
-          const top = section.offsetTop - 150;
-          if (window.scrollY >= top) {
-            current = section.getAttribute("id");
-          }
-        });
-        navLinks.forEach(link => {
-          link.classList.remove("ativo");
-          if (link.getAttribute("href") === "#" + current) {
-            link.classList.add("ativo");
-          }
-        });
-      });
-    </script>
+    <script src="./js/script.js"></script>
   </body>
+
 </html>
