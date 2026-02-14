@@ -38,9 +38,9 @@
       </article>
 
       <section id="experiencia" class="experiencias">
-        <h2>Experiencia</h2>
+        <h2 class="reveal">Experiencia</h2>
         <div>
-          <p class="sobre">
+          <p class="sobre reveal">
             Desenvolvo soluções completas utilizando
             <strong>Python, HTML, CSS e JavaScript.</strong> Especializado em
             sistemas ERP, automação de processos com N8N e análise de dados para
@@ -48,7 +48,7 @@
           </p>
 
           <ul class="experiencias-descricao">
-            <li>
+            <li class="reveal-left">
               <div class="experiencias-projeto">
                 <h3 class="nome-projeto">Sistema ERP Tori Etiquetas</h3>
                 <p>
@@ -69,7 +69,7 @@
                 </ul>
               </div>
             </li>
-            <li>
+            <li class="reveal-left">
               <div class="experiencias-projeto">
                 <h3 class="nome-projeto">Dashboard de Automação N8N</h3>
                 <p>
@@ -89,7 +89,7 @@
                 </ul>
               </div>
             </li>
-            <li>
+            <li class="reveal-left">
               <div class="experiencias-projeto">
                 <h3 class="nome-projeto">DataVis Analytics</h3>
                 <p>
@@ -114,9 +114,9 @@
       </section>
 
       <section id="formacao" class="formacao">
-        <h2>Formação</h2>
+        <h2 class="reveal">Formação</h2>
         <div>
-          <p class="sobre">
+          <p class="sobre reveal">
             Atualmente estou cursando
             <strong>Ciências da Computação</strong> na
             <strong>UNIFAVIP.</strong> Além disso, me
@@ -124,7 +124,7 @@
           </p>
 
           <ul class="lista-de-formacao">
-            <li>
+            <li class="reveal">
               <span class="badge-andamento">Em andamento</span>
               <p>Bacharelado</p>
               <h4>Ciências da Computação</h4>
@@ -133,7 +133,7 @@
           </ul>
 
           <ul class="formacao-adicional">
-            <li>
+            <li class="reveal">
               <div class="mais-detalhes-formacao">
                 <img src="./img/cursos.svg" alt="Cursos Intensivos" />
                 <h4>CURSOS INTENSIVOS</h4>
@@ -149,7 +149,7 @@
                 </li>
               </ul>
             </li>
-            <li>
+            <li class="reveal">
               <div class="mais-detalhes-formacao">
                 <img src="./img/idiomas.svg" alt="Idiomas" />
                 <h4>IDIOMAS</h4>
@@ -169,7 +169,7 @@
         </div>
       </section>
     </main>
-    <footer id="contato">
+    <footer id="contato" class="reveal">
       <div class="footer">
         <p>
           Estou disponível para novos projetos no momento. Entre em contato
@@ -189,5 +189,52 @@
       </div>
       <p>Alguns direitos reservados</p>
     </footer>
+
+    <script>
+      // Smooth scroll
+      document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+        link.addEventListener("click", e => {
+          e.preventDefault();
+          const target = document.querySelector(link.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
+          }
+        });
+      });
+
+      // Scroll reveal
+      const revealElements = document.querySelectorAll(".reveal, .reveal-left");
+      const observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+      revealElements.forEach(el => observer.observe(el));
+
+      // Nav ativa ao scroll
+      const sections = document.querySelectorAll("section, footer");
+      const navLinks = document.querySelectorAll("nav a");
+
+      window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach(section => {
+          const top = section.offsetTop - 150;
+          if (window.scrollY >= top) {
+            current = section.getAttribute("id");
+          }
+        });
+        navLinks.forEach(link => {
+          link.classList.remove("ativo");
+          if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("ativo");
+          }
+        });
+      });
+    </script>
   </body>
 </html>
